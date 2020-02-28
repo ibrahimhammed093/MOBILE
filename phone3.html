@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#Menu</title>
+</head>
+<style type="text/css">
+	#container{
+			background-color:#f2f2f2;
+			border-color:2px solid gold;
+			width:260px;
+			height:450px;
+			border-radius:10px;
+			padding-top: 15px;
+			margin-top:15px;
+		}
+		.speaker{
+			background-color:#000000;
+			height: 1px;
+			width: 40px;
+			border-radius:18px;
+			padding-top:10px;
+
+		}
+		#screen{
+			background:linear-gradient(to bottom, #ffdf99,#bfff00,#ff5500,#ff33ff);
+			border: 2px solid #2e2e1f;
+			border-radius:7px;
+			margin-top: 5px;
+			height:390px;
+			width:220px;
+		}
+		#clock{
+			position:relative;
+			top:10px;
+			font-size:15px;
+			color:#ffffff
+			}
+		#homebuttons button{
+			width:35px;
+			height:35px;
+			margin-top:338px;
+			border-radius:7px;
+			outline:none;
+		}
+		button img{
+			width:18px;
+			height:18px;
+			background:transparent;
+		}
+		#menubuttons p{
+			position:relative;
+			top:-375px;
+			width:225px;
+			height:40px;
+		}
+		p button{
+			outline:none;
+			border-radius:7px;
+		}
+		.bars{
+			float:right;
+			width:25px;
+			height:10px;
+			margin-right:4px;
+			margin-top: -15px; 
+		}
+		.bars img{
+			width:10px;
+			height:13px;
+		}
+
+		
+</style>
+
+<body onload="startTime()" style="background-color:#000000">
+<center>
+	<div id="container">
+		<div class="speaker"></div>
+		<div id="screen">
+			<div id="clock"></div>
+			<div class="bars">
+				<img src="icons/bar.png">
+				<img src="icons/full_bar.png">
+			</div>
+			<div id="homebuttons">
+				<a href="phone5.html"><button style="background-color:green"><img src="icons/call.png"></button></a>
+				<a href="phone4.html"><button><img src="icons/contacts.png"></button></a>
+				<a href=""><button><img src="icons/instagram.png"></button></a>
+				<a href=""><button><img src="icons/Low Battery.png"></button></a>
+				<a href=""><button><img src="icons/line.png"></button></a>
+			</div>
+			<div id="menubuttons">
+				<p>
+					<button><img src="icons/cam.png" class="menu"></button>
+					<a href="phone9.html"><button><img src="icons/play.png" class="menu"></button></a>
+					<button><img src="icons/gmail.png" class="menu"></button>
+					<button><img src="icons/images.png" class="menu"></button>
+					<button><img src="icons/messenger.png" class="menu"></button>
+				</p>
+				<p>
+					<button><img src="icons/file.png" class="menu"></button>
+					<button><img src="icons/facebook.png" class="menu"></button>
+					<button><img src="icons/explorer.png" class="menu"></button>
+					<button><img src="icons/music.png" class="menu"></button>
+					<button><img src="icons/share.png" class="menu"></button>
+				</p>
+				<p>
+					<button><img src="icons/sms.png" class="menu"></button>
+					<button><img src="icons/skype.png" class="menu"></button>
+					<button><img src="icons/notepad.png" class="menu"></button>
+					<button><img src="icons/opera.png" class="menu"></button>
+					<button><img src="icons/shoppy.png" class="menu"></button>
+				</p>
+				<p>
+					<button><img src="icons/telegram.png" class="menu"></button>
+					<button><img src="icons/twitter.png" class="menu"></button>
+					<a href="phone8.html"><button><img src="icons/whatsApp.png" class="menu"></button></a>
+					<button><img src="icons/wifi.png" class="menu"></button>
+					<button><img src="icons/YouTube.png" class="menu"></button>
+				</p>
+				<p>
+					<a href="phone7.html"><button><img src="icons/alarm.png" class="menu"></button></a>
+					<a href="phone6.html"><button><img src="icons/calculator.png" class="menu"></button></a>
+					<button><img src="icons/chart.png" class="menu"></button>
+					<button><img src="icons/countdown.png" class="menu"></button>
+					<button><img src="icons/linkedIn.png" class="menu"></button>
+				</p>
+				<p>
+					<button><img src="icons/googleplus.png" class="menu"></button>
+					<button><img src="icons/Charging Battery.png" class="menu"></button>
+					<button><img src="icons/crown1.png" class="menu"></button>
+					<button><img src="icons/lap.png" class="menu"></button>
+					<button><img src="icons/loc.png" class="menu"></button>
+				</p>
+
+			</div>
+				
+			
+		</div>
+			<div>
+	      	<a href="phone2.html"><button style="width:35px;height:35px;border-radius:360px;outline:none;border-color:#c88831;"></button></a>
+	      </div>
+	</div>
+</center>
+<script type="text/javascript">
+	var hr;
+		var mn;
+		var sc;
+		var session;
+		setInterval(startTime, 1000);
+	function startTime(){
+		var d = new Date()
+		hr = d.getHours();
+		mn = d.getMinutes();
+		
+		var session = "";
+		if (hr == 0) {
+			hr = 12;
+			session = "AM"
+		}
+		if (hr > 12) {
+			hr = hr - 12;
+			session = "PM"
+		}
+		if (hr < 10) {
+			hr = "0" + hr;
+		}
+		if (mn < 10) {
+			mn = "0" + mn;
+		}
+		
+		document.getElementById('clock').innerHTML= hr + ":" + mn + "" + session; 
+	}
+
+</script>
+</body>
+</html>
