@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#HOMEPAGE</title>
+</head>
+<style type="text/css">
+	#container{
+			background-color:#f2f2f2;
+			border-color:2px solid gold;
+			width:260px;
+			height:450px;
+			border-radius:10px;
+			padding-top: 15px;
+			margin-top:15px;
+		}
+		.speaker{
+			background-color:#000000;
+			height: 1px;
+			width: 40px;
+			border-radius:18px;
+			padding-top:10px;
+
+		}
+		#screen{
+			background:linear-gradient(to bottom, #ffdf99,#bfff00,#ff5500,#ff33ff);
+			border: 2px solid #2e2e1f;
+			border-radius:7px;
+			margin-top: 5px;
+			height:390px;
+			width:220px;
+		}
+		/*#screen{
+			background-image:url(hammed/jpg);
+			width:50px;
+			height:50px;*/
+		}
+		#clock{
+			position:relative;
+			top:10px;
+			font-size:15px;
+			color:#ffffff
+		}
+		#homebuttons button{
+			background:transparent;;
+			width:35px;
+			height:35px;
+			margin-top:338px;
+			border-radius:7px;
+			outline:none;
+		}
+		button img{
+			width:18px;
+			height:18px;
+		}
+		.bars{
+			float:right;
+			width:25px;
+			height:10px;
+			margin-right:4px;
+			margin-top: -15px; 
+		}
+		.bars img{
+			width:10px;
+			height:13px;
+		}
+</style>
+
+<body onload="startTime()">
+<center>
+	<div id="container">
+		<div class="speaker"></div>
+		<div id="screen">
+			<!-- <div style="width:30px font-size:8px;">Airtel</div> -->
+			<div id="clock" style="color:#ffffff;"></div>
+			<div class="bars">
+				<img src="icons/bar.png">
+				<img src="icons/full_bar.png">
+			</div>
+
+			<div id="homebuttons">
+				<a href="phone5.html"><button style="background-color:green"><img src="icons/call.png"></button></a>
+				<a href="phone4.html"><button><img src="icons/contacts.png"></button></a>
+				<a href=""><button><img src="icons/instagram.png"></button></a>
+				<a href="phone3.html"><button><img src="icons/menu.png"></button></a>
+				<a href=""><button><img src="icons/messenger.png"></button></a>
+			</div>
+		</div>
+		<div>
+			<!-- <button style="height:25px; width:25px;"></button> -->
+			<a href="phone.html"><button style="width:35px;height:35px;border-radius:360px;outline:none;border-color:#c88831;"></button></a>
+			<!-- <button style="height:25px;width:25px;"></button> -->
+		</div>
+	</div>
+</center>
+<script type="text/javascript">
+	var hr;
+		var mn;
+		var sc;
+		var session;
+		setInterval(startTime, 1000);
+	function startTime(){
+		var d = new Date()
+		hr = d.getHours();
+		mn = d.getMinutes();
+		
+		var session = "";
+		if (hr == 0) {
+			hr = 12;
+			session = "AM"
+		}
+		if (hr > 12) {
+			hr = hr - 12;
+			session = "PM"
+		}
+		if (hr < 10) {
+			hr = "0" + hr;
+		}
+		if (mn < 10) {
+			mn = "0" + mn;
+		}
+		
+		document.getElementById('clock').innerHTML= hr + ":" + mn + "" + session; 
+	}	
+</script>
+</body>
+</html>
