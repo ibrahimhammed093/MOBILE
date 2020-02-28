@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#CALL</title>
+</head>
+<style type="text/css">
+	#container{
+			background-color:#f2f2f2;
+			border-color:2px solid gold;
+			width:260px;
+			height:450px;
+			border-radius:10px;
+			padding-top: 15px;
+			margin-top:15px;
+		}
+		.speaker{
+			background-color:#000000;
+			height: 1px;
+			width: 40px;
+			border-radius:18px;
+			padding-top:10px;
+
+		}
+		#screen{
+			background:linear-gradient(to bottom, #ffdf99,#bfff00,#ff5500,#ff33ff);
+			border: 2px solid #2e2e1f;
+			border-radius:7px;
+			margin-top: 5px;
+			height:390px;
+			width:220px;
+		}
+		#clock{
+			position:relative;
+			top:10px;
+			font-size:15px;
+			color:#ffffff
+		}
+		#homebuttons button{
+			width:35px;
+			height:35px;
+			margin-top:338px;
+			border-radius:7px;
+		}
+		button img{
+			width:18px;
+			height:18px;
+		}
+		.bars{
+			float:right;
+			width:25px;
+			height:10px;
+			margin-right:4px;
+			margin-top: -15px; 
+		}
+		.bars img{
+			width:10px;
+			height:13px;
+		}
+		#input{
+			margin-top: 25px;
+			font-family: sans-serif;
+			font-size:25px;
+		}
+		p button{
+			width:45px;
+			height:45px;
+			border:none;
+			border-radius:360px;
+			color:teal;
+			outline:none;
+		}
+		#del{
+			float:right;
+			margin-top:-10px;
+		}
+		#del button{
+			outline: none;
+		}
+
+</style>
+
+<body onload="startTime()">
+<center>
+	<div id="container">
+		<div class="speaker"></div>
+		<div id="screen">
+			<div id="clock"></div>
+			<div class="bars">
+				<img src="icons/bar.png">
+				<img src="icons/full_bar.png">
+			</div>
+			<div>
+				<div id="input"></div>
+				<div id="del"><button onclick="del()" style="border:none; width:3px; height:2px;color:#dbdde0;">x</button></div>
+				<p>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=1">1<br>^</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=2">2<br>abc</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=3">3<br>def</button>
+				</p>
+				<p>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=4">4<br>ghi</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=5">5<br>jkl</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=6">6<br>mno</button>
+				</p>
+				<p>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=7">7<br>pqrs</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=8">8<br>tuv</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=9">9<br>wxyz</button>
+				</p>
+				<p>
+					<button class="button" onclick="document.getElementById('input').innerHTML+='*' ">*</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+=0">0<br>+</button>
+					<button class="button" onclick="document.getElementById('input').innerHTML+='#' ">#</button>
+				</p>
+				<p><center><button style="background-color:green; width:45px;height:45px; border-radius:360px; outline:none;"><img src="icons/call.png"></button></center></p>
+			</div>
+
+			
+		</div>
+			<div>
+	      	<a href="phone3.html"><button style="width:35px;height:35px;border-radius:360px;outline:none;border-color:#c88831;"></button></a>
+	      </div>
+	</div>
+</center>
+<script type="text/javascript">
+	var hr;
+		var mn;
+		var sc;
+		var session;
+		setInterval(startTime, 1000);
+	function startTime(){
+		var d = new Date()
+		hr = d.getHours();
+		mn = d.getMinutes();
+		
+		var session = "";
+		if (hr == 0) {
+			hr = 12;
+			session = "AM"
+		}
+		if (hr > 12) {
+			hr = hr - 12;
+			session = "PM"
+		}
+		if (hr < 10) {
+			hr = "0" + hr;
+		}
+		if (mn < 10) {
+			mn = "0" + mn;
+		}
+		
+		document.getElementById('clock').innerHTML= hr + ":" + mn + "" + session; 
+	}
+	function del() {
+	input.innerHTML = input.innerHTML.slice(0, -1);
+	}
+</script>
+</body>
+</html>
